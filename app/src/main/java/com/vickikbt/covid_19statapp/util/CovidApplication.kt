@@ -29,7 +29,7 @@ class CovidApplication : Application(), KodeinAware {
             )
         }
         bind<CoronaRepository>() with singleton { CoronaRepositoryImpl(instance(), instance()) }
-        bind() from provider { GlobalViewModelFactory(instance()) }
+        //bind() from provider { GlobalViewModelFactory(instance()) }
     }
 
     override fun onCreate() {
