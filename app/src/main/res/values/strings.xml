@@ -75,7 +75,7 @@
     <string name="email_address">victorbro14@gmail.com</string>
     <string name="my_website">victorkabata.github.io</string>
     <string name="send_feedback">Send Feedback.</string>
-
+    <string name="loading">Loading...</string>
 
 
 </resources>
