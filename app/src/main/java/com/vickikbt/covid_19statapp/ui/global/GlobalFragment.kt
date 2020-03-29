@@ -25,10 +25,17 @@ class GlobalFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(GlobalViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_global, container, false)
 
+
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
         viewModel.cases.observe(viewLifecycleOwner, Observer {
             text_home.text = it
         })
 
-        return binding.root
     }
+
 }

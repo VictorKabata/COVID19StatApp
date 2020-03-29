@@ -1,16 +1,22 @@
 package com.vickikbt.covid_19statapp.ui.global
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Observer
+import com.vickikbt.covid_19statapp.network.ConnectivityInterceptorImpl
 import com.vickikbt.covid_19statapp.network.CoronaAPIService
+import com.vickikbt.covid_19statapp.network.GlobalStatNetworkDataSourceImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class GlobalViewModel : ViewModel() {
+class GlobalViewModel(application: Application) : AndroidViewModel(application) {
+    private val context = getApplication<Application>().applicationContext
+
     private val _cases = MutableLiveData<String>()
-    val apiService=CoronaAPIService()
+    val apiService = CoronaAPIService(ConnectivityInterceptorImpl(this.context!!))
+    val coronaDataSource = GlobalStatNetworkDataSourceImpl(apiService)
 
     val cases: MutableLiveData<String>
         get() = _cases
@@ -19,10 +25,13 @@ class GlobalViewModel : ViewModel() {
         getGlobalCoronaInfectionStats()
     }
 
-    private fun getGlobalCoronaInfectionStats(){
-        GlobalScope.launch(Dispatchers.Main){
-            val coronaGlobalCoronaData=apiService.getGlobalStatistics().await()
-            _cases.value=coronaGlobalCoronaData.toString()
+    private fun getGlobalCoronaInfectionStats() {
+        coronaDataSource.downloadedGlobalStats.observeForever(Observer {
+            _cases.value = it.toString()
+        })
+
+        GlobalScope.launch(Dispatchers.Main) {
+            coronaDataSource.fetchCurrentGlobalStat()
         }
     }
 }

@@ -17,7 +17,7 @@ interface CoronaAPIService {
     fun getGlobalStatistics(): Deferred<GlobalCoronaData>
 
     companion object {
-        operator fun invoke(): CoronaAPIService {
+        operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): CoronaAPIService {
             val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
                     .url()
@@ -34,6 +34,7 @@ interface CoronaAPIService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()
