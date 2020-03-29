@@ -10,12 +10,12 @@ import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
     entities = [GlobalCoronaData::class],
     version = 1
 )
-abstract class GlobalCoronaStatDatabase : RoomDatabase() {
+abstract class CoronaStatDatabase : RoomDatabase() {
     abstract fun globalCoronaStatDao(): GlobalCoronaStatDAO
 
     companion object {
         @Volatile
-        private var instance: GlobalCoronaStatDatabase? = null
+        private var instance: CoronaStatDatabase? = null
         private val LOCK = Any()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
@@ -25,7 +25,7 @@ abstract class GlobalCoronaStatDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
-                GlobalCoronaStatDatabase::class.java,
+                CoronaStatDatabase::class.java,
                 "CoronaStatDatabase.db"
             ).build()
     }

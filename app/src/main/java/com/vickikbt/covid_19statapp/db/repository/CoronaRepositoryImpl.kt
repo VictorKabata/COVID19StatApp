@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.threeten.bp.ZonedDateTime
 
 class CoronaRepositoryImpl(
     private val globalCoronaStatDAO: GlobalCoronaStatDAO,
@@ -15,13 +16,13 @@ class CoronaRepositoryImpl(
 ) : CoronaRepository {
 
     init {
-        globalCoronaDataSource.downloadedGlobalStats.observeForever { newGlobalStat->
-           persistFetchedCurrentGlobalStat(newGlobalStat)
+        globalCoronaDataSource.downloadedGlobalStats.observeForever { newGlobalStat ->
+            persistFetchedCurrentGlobalStat(newGlobalStat)
         }
     }
 
     override suspend fun getGlobalStat(): LiveData<GlobalCoronaData> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             return@withContext globalCoronaStatDAO.getGlobalCoronaStat()
         }
     }
@@ -30,5 +31,19 @@ class CoronaRepositoryImpl(
         GlobalScope.launch(Dispatchers.IO) {
             globalCoronaStatDAO.upsert(fetchedStat)
         }
+    }
+
+    private suspend fun initGlobalStats() {
+        if (isFetchNeeded(ZonedDateTime.now().minusHours(1)))
+            fetchCurrentStatistics()
+    }
+
+    private suspend fun fetchCurrentStatistics() {
+        globalCoronaDataSource.fetchCurrentGlobalStat()
+    }
+
+    private fun isFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
+        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
+        return (lastFetchTime.isBefore(tenMinsAgo))
     }
 }
