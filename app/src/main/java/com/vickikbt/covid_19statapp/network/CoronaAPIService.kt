@@ -1,7 +1,7 @@
 package com.vickikbt.covid_19statapp.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.vickikbt.covid_19statapp.data.GlobalCoronaData
+import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
