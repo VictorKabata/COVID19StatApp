@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_global">
+
+    <fragment
+        android:id="@+id/navigation_global"
+        android:name="com.vickikbt.covid_19statapp.ui.global.GlobalFragment"
+        android:label="@string/global"
+        tools:layout="@layout/fragment_global" />
+
+    <fragment
+        android:id="@+id/navigation_countries"
+        android:name="com.vickikbt.covid_19statapp.ui.countries.CountriesFragment"
+        android:label="@string/countries"
+        tools:layout="@layout/fragment_countries" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.vickikbt.covid_19statapp.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

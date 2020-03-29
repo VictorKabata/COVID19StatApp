@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_global"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/global" />
+
+    <item
+        android:id="@+id/navigation_countries"
+        android:icon="@drawable/ic_country"
+        android:title="@string/countries" />
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_disease"-->
+<!--        android:icon="@drawable/ic_virus"-->
+<!--        android:title="@string/covid_19" />-->
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+</menu>

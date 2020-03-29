@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FCAEAEAE</color>
+    <color name="colorAccent">#8B8B8B</color>
+
+    <color name="primaryText">#000</color>
+    <color name="secondaryText">#8B8B8B</color>
+
+    <color name="DarkBackground">#121212</color>
+
+    <color name="semi_transparent_card">#AEDDDDDD</color>
+
+    <color name="soothing_blue">#45b3e0</color>
+    <color name="sad_red">#ff2400</color>
+    <color name="hopeful_green">#5ABA4A</color>
+</resources>
