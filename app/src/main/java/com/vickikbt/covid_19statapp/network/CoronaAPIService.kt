@@ -1,6 +1,7 @@
 package com.vickikbt.covid_19statapp.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -15,6 +16,9 @@ interface CoronaAPIService {
 
     @GET("all")
     fun getGlobalStatistics(): Deferred<GlobalCoronaData>
+
+    @GET("countries")
+    fun getCountriesStatistics(): Deferred<CountriesCoronaDataEntry>
 
     companion object {
         operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): CoronaAPIService {

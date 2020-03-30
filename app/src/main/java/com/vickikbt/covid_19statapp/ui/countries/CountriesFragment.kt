@@ -10,14 +10,14 @@ import com.vickikbt.covid_19statapp.R
 
 class CountriesFragment : Fragment() {
 
-    private lateinit var viewModel: CountriesViewModel
+    private lateinit var fragmentViewModel: CountriesFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(CountriesViewModel::class.java)
+        fragmentViewModel = ViewModelProvider(this).get(CountriesFragmentViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_countries, container, false)
 
         return root

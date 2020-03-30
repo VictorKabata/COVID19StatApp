@@ -20,8 +20,8 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
     override val kodein by closestKodein()
 
     lateinit var binding: FragmentGlobalBinding
-    private lateinit var viewModel: GlobalViewModel
-    private val viewModelFactory: GlobalViewModelFactory by instance()
+    private lateinit var fragmentViewModel: GlobalFragmentViewModel
+    private val viewFragmentModelFactory: GlobalViewFragmentModelFactory by instance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_global, container, false)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(GlobalViewModel::class.java)
+        fragmentViewModel = ViewModelProvider(this, viewFragmentModelFactory).get(GlobalFragmentViewModel::class.java)
 
 
         return binding.root
@@ -43,7 +43,7 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
     }
 
     private fun bindUI() = launch {
-        val currentGlobalStat = viewModel.globalStatistics.await()
+        val currentGlobalStat = fragmentViewModel.globalStatistics.await()
         currentGlobalStat.observe(viewLifecycleOwner, Observer {
             if (it == null) return@Observer
             binding.progressBarGlobal.visibility = View.GONE
@@ -53,7 +53,7 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
             binding.textViewRecovered.text = it.recovered.toString()
         })
 
-        binding.textViewDate.text = viewModel.getDate()
+        binding.textViewDate.text = fragmentViewModel.getDate()
 
     }
 

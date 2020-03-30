@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.vickikbt.covid_19statapp.db.repository.CoronaRepository
 
 @Suppress("UNCHECKED_CAST")
-class GlobalViewModelFactory(private val coronaRepository: CoronaRepository) :
+class GlobalViewFragmentModelFactory(private val coronaRepository: CoronaRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return GlobalViewModel(coronaRepository) as T
+        return GlobalFragmentViewModel(coronaRepository) as T
     }
 }

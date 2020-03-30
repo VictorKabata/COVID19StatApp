@@ -4,14 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.vickikbt.covid_19statapp.data.CountriesCoronaData
+import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 
 @Database(
-    entities = [GlobalCoronaData::class],
+    entities = [GlobalCoronaData::class, CountriesCoronaData::class],
     version = 1
 )
 abstract class CoronaStatDatabase : RoomDatabase() {
     abstract fun globalCoronaStatDao(): GlobalCoronaStatDAO
+    abstract fun countriesCoronaStatDao(): CountriesCoronaStatDAO
 
     companion object {
         @Volatile

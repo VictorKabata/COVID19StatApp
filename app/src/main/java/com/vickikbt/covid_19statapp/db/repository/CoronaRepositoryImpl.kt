@@ -1,23 +1,34 @@
 package com.vickikbt.covid_19statapp.db.repository
 
 import androidx.lifecycle.LiveData
+import com.vickikbt.covid_19statapp.data.CountriesCoronaData
+import com.vickikbt.covid_19statapp.db.CountriesCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.GlobalCoronaStatDAO
+import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
-import com.vickikbt.covid_19statapp.network.GlobalStatNetworkDataSource
+import com.vickikbt.covid_19statapp.network.CoronaStatNetworkDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.threeten.bp.LocalDate
 import org.threeten.bp.ZonedDateTime
 
 class CoronaRepositoryImpl(
     private val globalCoronaStatDAO: GlobalCoronaStatDAO,
-    private val globalCoronaDataSource: GlobalStatNetworkDataSource
+    private val countriesCoronaStatDAO: CountriesCoronaStatDAO,
+    private val coronaCoronaDataSource: CoronaStatNetworkDataSource
 ) : CoronaRepository {
 
     init {
-        globalCoronaDataSource.downloadedGlobalStats.observeForever { newGlobalStat ->
-            persistFetchedCurrentGlobalStat(newGlobalStat)
+        coronaCoronaDataSource.apply {
+            downloadedGlobalStats.observeForever { newGlobalStat ->
+                persistFetchedCurrentGlobalStat(newGlobalStat)
+            }
+
+            downloadCountriesStat.observeForever { newCountriesStat ->
+                persistFetchedCurrentCountriesStat(newCountriesStat)
+            }
         }
     }
 
@@ -28,22 +39,55 @@ class CoronaRepositoryImpl(
         }
     }
 
+    override suspend fun getCountriesStat(): LiveData<List<CountriesCoronaDataEntry>> {
+        return withContext(Dispatchers.IO) {
+            initGlobalStats()
+            return@withContext countriesCoronaStatDAO.getAllCountries()
+        }
+    }
+
     private fun persistFetchedCurrentGlobalStat(fetchedStat: GlobalCoronaData) {
         GlobalScope.launch(Dispatchers.IO) {
             globalCoronaStatDAO.upsert(fetchedStat)
         }
     }
 
+    private fun persistFetchedCurrentCountriesStat(fetchedStat: CountriesCoronaData) {
+
+        fun deleteOldEntries() {
+            val today = LocalDate.now()
+            //countriesCoronaStatDAO.deleteOldEntries(today)
+        }
+
+        GlobalScope.launch(Dispatchers.IO) {
+            deleteOldEntries()
+            countriesCoronaStatDAO.upsert(fetchedStat)
+        }
+
+    }
+
     private suspend fun initGlobalStats() {
-        if (isFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
-            fetchCurrentStatistics()
+        if (isGlobalStatFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
+            fetchGlobalStatistics()
+
+        if (isCountriesStatFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
+            fetchCountriesStatistics()
     }
 
-    private suspend fun fetchCurrentStatistics() {
-        globalCoronaDataSource.fetchCurrentGlobalStat()
+    private suspend fun fetchGlobalStatistics() {
+        coronaCoronaDataSource.fetchGlobalStat()
     }
 
-    private fun isFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
+    private suspend fun fetchCountriesStatistics() {
+        coronaCoronaDataSource.fetchCountriesStat()
+    }
+
+    private fun isGlobalStatFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
+        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
+        return (lastFetchTime.isBefore(tenMinsAgo))
+    }
+
+    private fun isCountriesStatFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
         val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
         return (lastFetchTime.isBefore(tenMinsAgo))
     }

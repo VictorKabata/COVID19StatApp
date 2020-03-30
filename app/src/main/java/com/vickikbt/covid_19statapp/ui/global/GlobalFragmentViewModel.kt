@@ -6,7 +6,7 @@ import com.vickikbt.covid_19statapp.util.lazyDefered
 import java.text.DateFormat
 import java.util.*
 
-class GlobalViewModel(private val coronaRepository: CoronaRepository) : ViewModel() {
+class GlobalFragmentViewModel(private val coronaRepository: CoronaRepository) : ViewModel() {
     val globalStatistics by lazyDefered {
         coronaRepository.getGlobalStat()
     }
