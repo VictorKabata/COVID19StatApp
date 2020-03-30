@@ -6,6 +6,7 @@ import com.vickikbt.covid_19statapp.db.CoronaStatDatabase
 import com.vickikbt.covid_19statapp.db.repository.CoronaRepository
 import com.vickikbt.covid_19statapp.db.repository.CoronaRepositoryImpl
 import com.vickikbt.covid_19statapp.network.*
+import com.vickikbt.covid_19statapp.ui.countries.CountriesFragmentViewModelFactory
 import com.vickikbt.covid_19statapp.ui.global.GlobalViewFragmentModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -21,11 +22,15 @@ class CovidApplication : Application(), KodeinAware {
 
         bind() from singleton { CoronaStatDatabase(instance()) }
         bind() from singleton { instance<CoronaStatDatabase>().globalCoronaStatDao() }
+        bind() from singleton { instance<CoronaStatDatabase>().countriesCoronaStatDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { CoronaAPIService(instance()) }
         bind<CoronaStatNetworkDataSource>() with singleton {CoronaStatNetworkDataSourceImpl(instance())}
-        bind<CoronaRepository>() with singleton { CoronaRepositoryImpl(instance(), instance()) }
+        bind<CoronaRepository>() with singleton { CoronaRepositoryImpl(instance(), instance(), instance()) }
         bind() from provider { GlobalViewFragmentModelFactory(instance()) }
+        bind() from provider { CountriesFragmentViewModelFactory(instance()) }
+
+
     }
 
     override fun onCreate() {

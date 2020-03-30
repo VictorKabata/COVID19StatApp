@@ -9,7 +9,7 @@ import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 
 @Database(
-    entities = [GlobalCoronaData::class, CountriesCoronaData::class],
+    entities = [GlobalCoronaData::class, CountriesCoronaDataEntry::class],
     version = 1
 )
 abstract class CoronaStatDatabase : RoomDatabase() {

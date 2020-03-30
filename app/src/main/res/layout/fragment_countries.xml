@@ -16,6 +16,21 @@
 
 <!--        TODO: Add actionbar later on for searching and sorting-->
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_countries"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar_global"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/secondaryText" />
+
+
+
     </RelativeLayout>
 
 </layout>

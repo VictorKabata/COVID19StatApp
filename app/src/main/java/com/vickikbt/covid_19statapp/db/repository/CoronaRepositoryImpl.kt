@@ -1,7 +1,6 @@
 package com.vickikbt.covid_19statapp.db.repository
 
 import androidx.lifecycle.LiveData
-import com.vickikbt.covid_19statapp.data.CountriesCoronaData
 import com.vickikbt.covid_19statapp.db.CountriesCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.GlobalCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
@@ -17,11 +16,11 @@ import org.threeten.bp.ZonedDateTime
 class CoronaRepositoryImpl(
     private val globalCoronaStatDAO: GlobalCoronaStatDAO,
     private val countriesCoronaStatDAO: CountriesCoronaStatDAO,
-    private val coronaCoronaDataSource: CoronaStatNetworkDataSource
+    private val coronaDataSource: CoronaStatNetworkDataSource
 ) : CoronaRepository {
 
     init {
-        coronaCoronaDataSource.apply {
+        coronaDataSource.apply {
             downloadedGlobalStats.observeForever { newGlobalStat ->
                 persistFetchedCurrentGlobalStat(newGlobalStat)
             }
@@ -52,7 +51,7 @@ class CoronaRepositoryImpl(
         }
     }
 
-    private fun persistFetchedCurrentCountriesStat(fetchedStat: CountriesCoronaData) {
+    private fun persistFetchedCurrentCountriesStat(fetchedStat: List<CountriesCoronaDataEntry>) {
 
         fun deleteOldEntries() {
             val today = LocalDate.now()
@@ -69,17 +68,16 @@ class CoronaRepositoryImpl(
     private suspend fun initGlobalStats() {
         if (isGlobalStatFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
             fetchGlobalStatistics()
-
         if (isCountriesStatFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
             fetchCountriesStatistics()
     }
 
     private suspend fun fetchGlobalStatistics() {
-        coronaCoronaDataSource.fetchGlobalStat()
+        coronaDataSource.fetchGlobalStat()
     }
 
     private suspend fun fetchCountriesStatistics() {
-        coronaCoronaDataSource.fetchCountriesStat()
+        coronaDataSource.fetchCountriesStat()
     }
 
     private fun isGlobalStatFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {

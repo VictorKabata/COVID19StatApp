@@ -21,7 +21,7 @@ class CoronaStatNetworkDataSourceImpl(private val coronaAPIService: CoronaAPISer
                 .await()
             _downloadedGlobalStat.postValue(fetchCurrentGlobal)
         } catch (e: NoConnectivityException) {
-            Log.e("Debugg", "No internet connection!", e)
+            Log.e("Debug", "No internet connection!", e)
         }
     }
 
@@ -38,7 +38,7 @@ class CoronaStatNetworkDataSourceImpl(private val coronaAPIService: CoronaAPISer
                 .await()
             _downloadedCountriesStat.postValue(fetchedCurrentCountries)
         } catch (e: NoConnectivityException) {
-            Log.e("Debugg", "No internet connection!", e)
+            Log.e("Debug", "No internet connection!", e)
         }
     }
 
