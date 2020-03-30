@@ -43,7 +43,7 @@ class CoronaRepositoryImpl(
     }
 
     private fun isFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
-        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
-        return (lastFetchTime.isBefore(tenMinsAgo))
+        val thirtyMinsAgo = ZonedDateTime.now().minusMinutes(30)
+        return (lastFetchTime.isBefore(thirtyMinsAgo))
     }
 }
