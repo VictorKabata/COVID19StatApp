@@ -45,10 +45,10 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
     private fun bindUI() = launch {
         val currentGlobalStat = viewModel.globalStatistics.await()
         currentGlobalStat.observe(viewLifecycleOwner, Observer {
-            if(it==null)return@Observer
+            if (it == null) return@Observer
 
             binding.textHome.text = it.toString()
         })
-    }.cancel()
+    }
 
 }
