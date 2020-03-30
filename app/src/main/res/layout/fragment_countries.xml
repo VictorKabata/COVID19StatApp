@@ -14,12 +14,7 @@
             android:background="@drawable/covid_background"
             android:elevation="-5dp" />
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        TODO: Add actionbar later on for searching and sorting-->
 
     </RelativeLayout>
 

@@ -18,4 +18,5 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
 
+
 </resources>

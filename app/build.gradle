@@ -108,4 +108,7 @@ dependencies {
     //Location library
     implementation "com.google.android.gms:play-services-location:17.0.0"
 
+    //Custom SearchView
+    implementation "com.miguelcatalan:materialsearchview:1.4.0"
+
 }
