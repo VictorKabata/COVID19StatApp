@@ -46,9 +46,15 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
         val currentGlobalStat = viewModel.globalStatistics.await()
         currentGlobalStat.observe(viewLifecycleOwner, Observer {
             if (it == null) return@Observer
+            binding.progressBarGlobal.visibility = View.GONE
 
-            binding.textHome.text = it.toString()
+            binding.textViewCases.text = it.cases.toString()
+            binding.textViewDeaths.text = it.deaths.toString()
+            binding.textViewRecovered.text = it.recovered.toString()
         })
+
+        binding.textViewDate.text = viewModel.getDate()
+
     }
 
 }

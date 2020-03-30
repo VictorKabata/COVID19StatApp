@@ -35,7 +35,7 @@ class CoronaRepositoryImpl(
     }
 
     private suspend fun initGlobalStats() {
-        if (isFetchNeeded(ZonedDateTime.now().minusHours(1)))
+        if (isFetchNeeded(ZonedDateTime.now().minusMinutes(5)))
             fetchCurrentStatistics()
     }
 
@@ -44,7 +44,7 @@ class CoronaRepositoryImpl(
     }
 
     private fun isFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
-        val thirtyMinsAgo = ZonedDateTime.now().minusMinutes(30)
-        return (lastFetchTime.isBefore(thirtyMinsAgo))
+        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
+        return (lastFetchTime.isBefore(tenMinsAgo))
     }
 }
