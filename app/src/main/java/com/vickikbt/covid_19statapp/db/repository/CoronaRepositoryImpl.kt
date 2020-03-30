@@ -23,6 +23,7 @@ class CoronaRepositoryImpl(
 
     override suspend fun getGlobalStat(): LiveData<GlobalCoronaData> {
         return withContext(Dispatchers.IO) {
+            initGlobalStats()
             return@withContext globalCoronaStatDAO.getGlobalCoronaStat()
         }
     }
