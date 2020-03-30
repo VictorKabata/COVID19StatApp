@@ -23,13 +23,9 @@ class CovidApplication : Application(), KodeinAware {
         bind() from singleton { instance<CoronaStatDatabase>().globalCoronaStatDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { CoronaAPIService(instance()) }
-        bind<GlobalStatNetworkDataSource>() with singleton {
-            GlobalStatNetworkDataSourceImpl(
-                instance()
-            )
-        }
+        bind<GlobalStatNetworkDataSource>() with singleton {GlobalStatNetworkDataSourceImpl(instance())}
         bind<CoronaRepository>() with singleton { CoronaRepositoryImpl(instance(), instance()) }
-        //bind() from provider { GlobalViewModelFactory(instance()) }
+        bind() from provider { GlobalViewModelFactory(instance()) }
     }
 
     override fun onCreate() {
