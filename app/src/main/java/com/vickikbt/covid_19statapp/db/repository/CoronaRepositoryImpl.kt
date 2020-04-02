@@ -42,7 +42,7 @@ class CoronaRepositoryImpl(
     override suspend fun getCountriesStat(): LiveData<List<CountriesCoronaDataEntry>> {
         return withContext(Dispatchers.IO) {
             initStats()
-            return@withContext countriesCoronaStatDAO.getAllCountries()
+            return@withContext countriesCoronaStatDAO.getCountriesStat()
         }
     }
 
@@ -62,9 +62,9 @@ class CoronaRepositoryImpl(
     }
 
     private suspend fun initStats() {
-        if (isGlobalStatFetchNeeded(ZonedDateTime.now().minusMinutes(11)))
+        if (isGlobalStatFetchNeeded(ZonedDateTime.now().minusMinutes(2)))
             fetchGlobalStatistics()
-        if (isCountriesStatFetchNeeded(ZonedDateTime.now().minusMinutes(11)))
+        if (isCountriesStatFetchNeeded(ZonedDateTime.now().minusMinutes(2)))
             fetchCountriesStatistics()
     }
 
@@ -77,12 +77,12 @@ class CoronaRepositoryImpl(
     }
 
     private fun isGlobalStatFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
-        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
-        return (lastFetchTime.isBefore(tenMinsAgo))
+        val twoMinsAgo = ZonedDateTime.now().minusMinutes(2)
+        return (lastFetchTime.isBefore(twoMinsAgo))
     }
 
     private fun isCountriesStatFetchNeeded(lastFetchTime: ZonedDateTime): Boolean {
-        val tenMinsAgo = ZonedDateTime.now().minusMinutes(10)
-        return (lastFetchTime.isBefore(tenMinsAgo))
+        val twoMinsAgo = ZonedDateTime.now().minusMinutes(2)
+        return (lastFetchTime.isBefore(twoMinsAgo))
     }
 }

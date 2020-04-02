@@ -17,22 +17,15 @@
 
         <!--        TODO: Add actionbar later on for searching and sorting-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_countries"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recyclerview_item" />-->
+            tools:listitem="@layout/recyclerview_item" />
 
-        <TextView
-            android:id="@+id/textView_countries"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loading..."
-            android:textSize="20sp"
-            android:layout_centerInParent="true"/>
 
         <ProgressBar
             android:id="@+id/progressBar_global"

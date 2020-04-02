@@ -9,16 +9,14 @@ data class CountriesCoronaDataEntry(
     val active: Int,
     val cases: Int,
     val casesPerOneMillion: Float,
+    @PrimaryKey(autoGenerate = false)
     val country: String,
     val critical: Int,
     val deaths: Int,
     val deathsPerOneMillion: Float,
     val recovered: Int,
     val todayCases: Int,
-    val todayDeaths: Int,
-
-    @PrimaryKey(autoGenerate = true)
-    val id:Int
+    val todayDeaths: Int
 
     /*@Embedded(prefix = "countryInfo_")
     val countryInfo: CountryInfo,*/

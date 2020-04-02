@@ -11,10 +11,10 @@ import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 @Dao
 interface CountriesCoronaStatDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(countriesStatEntries: List<CountriesCoronaDataEntry>)
+    fun upsert(countriesCoronaDataResponse: CountriesCoronaDataResponse)
 
-    @Query("select * from country_statistics where id !=null")
-    fun getAllCountries(): LiveData<List<CountriesCoronaDataEntry>>
+    @Query("select * from country_statistics")
+    fun getCountriesStat(): LiveData<List<CountriesCoronaDataEntry>>
 
 
 //    @Query("delete from country_statistics where something")

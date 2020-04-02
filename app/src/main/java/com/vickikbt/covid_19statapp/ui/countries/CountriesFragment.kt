@@ -63,10 +63,7 @@ class CountriesFragment : ScopedFragment(), KodeinAware {
             dataList.addAll(it)
             myAdapter.notifyDataSetChanged()
 
-            binding.textViewCountries.text=it.toString()
         })
-
-//        binding.recyclerViewCountries.adapter = myAdapter
 
     }
 
@@ -79,13 +76,12 @@ class CountriesFragment : ScopedFragment(), KodeinAware {
 
             binding.progressBarGlobal.visibility = View.GONE
 
-/*            dataList.addAll(it)
-            myAdapter.notifyDataSetChanged()*/
+            dataList.addAll(it)
+            myAdapter.notifyDataSetChanged()
 
-            binding.textViewCountries.text=it.toString()
         })
 
-        //binding.recyclerViewCountries.adapter = myAdapter
+        binding.recyclerViewCountries.adapter = myAdapter
     }
 
 
