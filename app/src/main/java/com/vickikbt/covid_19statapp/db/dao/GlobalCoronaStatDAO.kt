@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.db
+package com.vickikbt.covid_19statapp.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.vickikbt.covid_19statapp.db.entity.GLOBAL_DATA_ID
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 
-@Dao()
+@Dao
 interface GlobalCoronaStatDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(globalCoronaStat:GlobalCoronaData)

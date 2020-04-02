@@ -43,6 +43,10 @@ android {
         enabled = true
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {

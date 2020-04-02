@@ -6,7 +6,7 @@ import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 
 interface CoronaRepository {
 
-    suspend fun getGlobalStat():LiveData<GlobalCoronaData>
+    suspend fun getGlobalStat(): LiveData<GlobalCoronaData>
 
-    suspend fun getCountriesStat():LiveData<List<CountriesCoronaDataEntry>>
+    suspend fun getCountriesStat(): LiveData<List<CountriesCoronaDataEntry>>
 }

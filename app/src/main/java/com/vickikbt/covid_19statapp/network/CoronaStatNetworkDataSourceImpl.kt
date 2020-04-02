@@ -3,6 +3,7 @@ package com.vickikbt.covid_19statapp.network
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.vickikbt.covid_19statapp.data.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 import com.vickikbt.covid_19statapp.util.NoConnectivityException
@@ -27,8 +28,10 @@ class CoronaStatNetworkDataSourceImpl(private val coronaAPIService: CoronaAPISer
 
 
 
-    private val _downloadedCountriesStat = MutableLiveData<CountriesCoronaDataEntry>()
-    override val downloadCountriesStat: LiveData<CountriesCoronaDataEntry>
+
+    private val _downloadedCountriesStat = MutableLiveData<CountriesCoronaDataResponse>()
+
+    override val downloadCountriesStat: LiveData<CountriesCoronaDataResponse>
         get() = _downloadedCountriesStat
 
     override suspend fun fetchCountriesStat() {
