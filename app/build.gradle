@@ -118,4 +118,10 @@ dependencies {
     //Ramotion Folding Cell
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.3'
 
+    //Circular ImageView Dependency
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Bungee animations library
+    implementation 'com.github.Binary-Finery:Bungee:2.0'
+
 }

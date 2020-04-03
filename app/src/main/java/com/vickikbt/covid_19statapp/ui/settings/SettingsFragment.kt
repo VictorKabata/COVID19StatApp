@@ -1,6 +1,7 @@
 package com.vickikbt.covid_19statapp.ui.settings
 
 import android.content.SharedPreferences
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,8 @@ class SettingsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
 
-        val appSettingPref: SharedPreferences = this.activity!!.getSharedPreferences("ApSettingsPref", 0)
+        val appSettingPref: SharedPreferences =
+            this.activity!!.getSharedPreferences("ApSettingsPref", 0)
 
         val sharedPrefSave: SharedPreferences.Editor = appSettingPref.edit()
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
@@ -48,6 +50,46 @@ class SettingsFragment : Fragment() {
             }
         }
 
+        binding.relativeLayoutFeedback.setOnClickListener {
+
+        }
+
+        binding.relativeLayoutDeveloper.setOnClickListener {
+            showAboutDeveloperDialog()
+        }
+
         return binding.root
+    }
+
+    private fun showAboutDeveloperDialog() {
+        val builder = android.app.AlertDialog.Builder(activity, R.style.AlertDialogTheme)
+
+        val view: View = LayoutInflater.from(activity).inflate(
+            R.layout.about_developer_dialog, null
+        )
+
+        builder.setView(view)
+        /* view.findViewById<TextView>(R.id.textviewDialogTitle).text = (resources.getString(R.string.exit_dialog_title))
+         view.findViewById<TextView>(R.id.textviewDialogMessage).text = (resources.getString(R.string.exit_dialog_message))
+         view.findViewById<Button>(R.id.buttonNo).text = (resources.getString(R.string.no))
+         view.findViewById<Button>(R.id.buttonYes).text = (resources.getString(R.string.yes))*/
+
+        val alertDialog = builder.create()
+
+        /*view.findViewById<Button>(R.id.buttonNo).setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        view.findViewById<Button>(R.id.buttonYes).setOnClickListener {
+            moveTaskToBack(true)
+            Process.killProcess(Process.myPid())
+            exitProcess(1)
+        }*/
+
+        if (alertDialog.window != null) {
+            alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+
+        alertDialog.show()
     }
 }

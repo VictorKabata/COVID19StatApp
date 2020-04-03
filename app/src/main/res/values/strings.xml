@@ -35,7 +35,7 @@
     <string name="share_app">Share app</string>
     <string name="change_theme">Turn on dark mode.</string>
     <string name="about_developer">About Developer.</string>
-    <string name="version_number">Version 1.0.0</string>
+    <string name="version_number">Version 2.0.0</string>
 
     <string name="about_covid_1">Coronavirus disease 2019(COVID-19) is an infectious disease caused by severe acute respiratory syndrome coronavirus 2(SARS-CoV-2).</string>
     <string name="about_covid_2">World Health Organization announced on 11th February 2020 that “COVID-19” would be the official name of the disease. “Co” for Corona, “Vi” for Virus, “Di” for disease and “19” for 2019 which is the year the outbreak was identified.</string>
@@ -79,6 +79,11 @@
     <string name="country">Country</string>
     <string name="offline_mode">Offline Mode</string>
     <string name="search">Search</string>
+
+    <string name="myEmailAddress">\victorbro14@gmail.com</string>
+    <string name="myName">Victor Kabata Ndung\'u.</string>
+    <string name="myTwitterHandle">\@VickiKbt</string>
+    <string name="myWebsite">https://victorkabata.github.io/</string>
 
 
 </resources>

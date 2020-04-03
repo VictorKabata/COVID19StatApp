@@ -151,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="8dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -316,7 +316,7 @@
                             android:fontFamily="@font/exo_bold"
                             android:text="@string/case_per_1_million"
                             android:textColor="@color/primaryText"
-                            android:textSize="18sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/separator5"
@@ -345,7 +345,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
 
     </FrameLayout>
 
@@ -475,6 +474,7 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
     </FrameLayout>
 
 </com.ramotion.foldingcell.FoldingCell>
