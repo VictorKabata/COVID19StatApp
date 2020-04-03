@@ -1,7 +1,8 @@
-package com.vickikbt.covid_19statapp
+package com.vickikbt.covid_19statapp.ui.splashscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.vickikbt.covid_19statapp.R
 
 class SplashScreenActivity : AppCompatActivity() {
 

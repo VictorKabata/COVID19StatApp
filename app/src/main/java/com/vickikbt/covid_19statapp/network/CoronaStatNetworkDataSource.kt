@@ -1,8 +1,7 @@
 package com.vickikbt.covid_19statapp.network
 
 import androidx.lifecycle.LiveData
-import com.vickikbt.covid_19statapp.data.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 
 interface CoronaStatNetworkDataSource {

@@ -29,7 +29,10 @@ class GlobalFragment : ScopedFragment(), KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_global, container, false)
-        viewModel = ViewModelProvider(this, viewFragmentModelFactory).get(GlobalFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            viewFragmentModelFactory
+        ).get(GlobalFragmentViewModel::class.java)
 
 
         return binding.root

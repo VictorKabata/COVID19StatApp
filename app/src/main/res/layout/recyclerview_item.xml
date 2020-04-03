@@ -7,7 +7,8 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     app:animationDuration="1000"
-    app:cameraHeight="30">
+    app:backSideColor="@color/semi_transparent_card"
+    app:cameraHeight="50">
 
     <FrameLayout
         android:id="@+id/cell_content_view"

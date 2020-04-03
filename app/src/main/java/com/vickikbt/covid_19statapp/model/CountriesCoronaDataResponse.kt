@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.data
+package com.vickikbt.covid_19statapp.model
 
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 

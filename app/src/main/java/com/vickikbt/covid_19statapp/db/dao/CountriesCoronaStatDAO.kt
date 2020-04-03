@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.vickikbt.covid_19statapp.data.CountriesCoronaDataResponse
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 
 @Dao

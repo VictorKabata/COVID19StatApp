@@ -2,7 +2,7 @@ package com.vickikbt.covid_19statapp.db.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.vickikbt.covid_19statapp.data.CountriesCoronaDataResponse
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.dao.CountriesCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.dao.GlobalCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry

@@ -3,8 +3,7 @@ package com.vickikbt.covid_19statapp.network
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.vickikbt.covid_19statapp.data.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 import com.vickikbt.covid_19statapp.util.NoConnectivityException
 
