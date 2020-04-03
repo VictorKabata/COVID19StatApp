@@ -11,7 +11,7 @@ class GroupRecyclerView(val countryList: MutableList<CountriesCoronaDataEntry>) 
         viewHolder.apply {
             val data=countryList[position]
 
-            textView_country.text=data.country
+            textView_country_folded.text=data.country
         }
     }
 

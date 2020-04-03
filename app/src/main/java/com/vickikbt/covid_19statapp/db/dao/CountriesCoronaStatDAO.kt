@@ -13,7 +13,7 @@ interface CountriesCoronaStatDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(countriesCoronaDataResponse: CountriesCoronaDataResponse)
 
-    @Query("select * from country_statistics")
+    @Query("select * from country_statistics order by cases desc")
     fun getCountriesStat(): LiveData<List<CountriesCoronaDataEntry>>
 
 
