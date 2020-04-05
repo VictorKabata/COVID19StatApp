@@ -25,7 +25,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/semi_transparent_card"
+        android:backgroundTint="@color/colorPrimary"
         android:elevation="0dp"
         android:paddingTop="15dp"
         android:paddingBottom="10dp"
@@ -35,6 +35,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical">
 
             <TextView

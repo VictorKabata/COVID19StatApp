@@ -75,17 +75,6 @@ class SettingsFragment : Fragment() {
          view.findViewById<Button>(R.id.buttonYes).text = (resources.getString(R.string.yes))*/
 
         val alertDialog = builder.create()
-
-        /*view.findViewById<Button>(R.id.buttonNo).setOnClickListener {
-            alertDialog.dismiss()
-        }
-
-        view.findViewById<Button>(R.id.buttonYes).setOnClickListener {
-            moveTaskToBack(true)
-            Process.killProcess(Process.myPid())
-            exitProcess(1)
-        }*/
-
         if (alertDialog.window != null) {
             alertDialog.window!!.setBackgroundDrawable(ColorDrawable(0))
         }
