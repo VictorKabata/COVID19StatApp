@@ -13,6 +13,7 @@ import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.ActivitySplashScreenBinding
 import com.vickikbt.covid_19statapp.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_splash_screen.*
+import spencerstudios.com.bungeelib.Bungee
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -40,7 +41,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed(Runnable {
             val splash = Intent(this, MainActivity::class.java)
             startActivity(splash)
-            //Bungee.slideLeft(this)
+            Bungee.slideLeft(this)
             finish()
         }, 3000)
 

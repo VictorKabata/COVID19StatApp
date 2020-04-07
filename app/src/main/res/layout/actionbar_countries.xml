@@ -1,45 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbarContainer"
+    android:id="@+id/appBarLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/semi_transparent_card"
     android:elevation="0dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="0dp"
-    app:cardUseCompatPadding="true"
-    app:layout_scrollFlags="scroll|enterAlways">
+    app:elevation="0dp"
+    app:liftOnScroll="true">
 
-    <FrameLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/semi_transparent_card"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_scrollFlags="scroll|enterAlways">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toollbar"
+            android:id="@+id/toolbar"
+            tools:ignore="UnusedAttribute"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorSurface"
-            tools:ignore="UnusedAttribute">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/secondaryText"
-                app:title="Search Country" />
+            android:background="@color/semi_transparent_card"
+            app:menu="@menu/countries_toolbar_menu"
+            app:title="@string/search"
+            app:titleTextColor="@color/secondaryText">
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ViewStub
-            android:id="@+id/cab_stub"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-
-    </FrameLayout>
-
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</com.google.android.material.appbar.AppBarLayout>
 
 

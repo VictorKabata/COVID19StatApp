@@ -13,48 +13,41 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/nav_layout"
+            android:layout_above="@+id/nav_view"
             android:layout_alignParentTop="true"
             app:defaultNavHost="true"
             app:navGraph="@navigation/mobile_navigation" />
 
-        <LinearLayout
-            android:id="@+id/nav_layout"
+        <RelativeLayout
+            android:id="@+id/relativeLayout_connectivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/nav_view"
+            android:background="@color/sad_red"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/offline_mode"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout_connectivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/sad_red"
-                android:visibility="gone"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/offline_mode"
-                    android:textColor="@color/colorPrimary" />
-
-            </RelativeLayout>
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/nav_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?android:attr/windowBackground"
-                app:backgroundTint="@color/colorPrimary"
-                app:itemIconTint="@color/primaryText"
-                app:itemTextColor="@color/primaryText"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_nav_menu" />
-
-
-        </LinearLayout>
+            android:background="?android:attr/windowBackground"
+            app:backgroundTint="@color/colorPrimary"
+            app:itemIconTint="@color/primaryText"
+            app:itemTextColor="@color/primaryText"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
 
     </RelativeLayout>
 

@@ -70,15 +70,12 @@
     <string name="prevention_social_distancing">Avoid large crowds and gatherings. Also avoid close contact (about 6 feet) with anyone who is sick or has symptoms. Stay home from work, school and public areas to avoid spreading or getting the disease.</string>
     <string name="prevention_face_mask">If you are infected with the disease use a face mask to cover your mouth to prevent infecting others and change it often. Cover your mouth and nose with your elbow or a tissue when you cough or sneeze. Throw away the used tissue.</string>
 
-    <string name="dev_name">Victor Kabata Ndung\'u</string>
-    <string name="twitter_handle">\@VickiKbt</string>
-    <string name="email_address">victorbro14@gmail.com</string>
-    <string name="my_website">victorkabata.github.io</string>
+
     <string name="send_feedback">Send Feedback.</string>
     <string name="loading">Loading</string>
     <string name="country">Country</string>
     <string name="offline_mode">Offline Mode</string>
-    <string name="search">Search</string>
+    <string name="search">Search Country</string>
 
     <string name="myEmailAddress">\victorbro14@gmail.com</string>
     <string name="myName">Victor Kabata Ndung\'u.</string>

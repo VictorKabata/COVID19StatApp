@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -13,7 +14,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.ActivityMainBinding
-import com.vickikbt.covid_19statapp.network.ConnectivityInterceptor
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,9 +47,13 @@ class MainActivity : AppCompatActivity() {
         val networkInfo = connectivityManager.activeNetworkInfo
 
         if (networkInfo != null && networkInfo.isConnected) {
-            binding.relativeLayoutConnectivity.visibility= View.GONE
-        }else{
-            binding.relativeLayoutConnectivity.visibility= View.VISIBLE
+            binding.relativeLayoutConnectivity.visibility = View.GONE
+        } else {
+            binding.relativeLayoutConnectivity.visibility = View.VISIBLE
+            
+            Handler().postDelayed(Runnable {
+                binding.relativeLayoutConnectivity.visibility = View.GONE
+            }, 3500)
         }
 
     }

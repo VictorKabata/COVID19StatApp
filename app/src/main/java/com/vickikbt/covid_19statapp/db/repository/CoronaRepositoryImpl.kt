@@ -1,12 +1,11 @@
 package com.vickikbt.covid_19statapp.db.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.dao.CountriesCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.dao.GlobalCoronaStatDAO
 import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.network.CoronaStatNetworkDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -56,7 +55,7 @@ class CoronaRepositoryImpl(
 
         GlobalScope.launch(Dispatchers.IO) {
             countriesCoronaStatDAO.upsert(fetchedStat)
-            Log.e("Debug", "Saved countries stat from retrofit to room db.")
+//            Log.e("Debug", "Saved countries stat from retrofit to room db.")
         }
 
     }

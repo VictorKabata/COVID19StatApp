@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     app:animationDuration="1000"
     app:backSideColor="@color/semi_transparent_card"
-    app:cameraHeight="50">
+    app:cameraHeight="30">
 
     <FrameLayout
         android:id="@+id/cell_content_view"
@@ -303,42 +303,6 @@
                             android:textSize="20sp" />
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:layout_toStartOf="@+id/separator5"
-                            android:fontFamily="@font/exo_bold"
-                            android:text="@string/case_per_1_million"
-                            android:textColor="@color/primaryText"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/separator5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/exo_bold"
-                            android:text="@string/separator"
-                            android:textColor="@color/primaryText"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textView_case_per1Million_details"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_toEndOf="@+id/separator5"
-                            android:fontFamily="@font/exo_bold"
-                            android:text="@string/digits_placeholder"
-                            android:textColor="@color/primaryText"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
 
                 </LinearLayout>
 
