@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_country"
         android:title="@string/countries" />
 
-<!--    <item-->
-<!--        android:id="@+id/navigation_disease"-->
-<!--        android:icon="@drawable/ic_virus"-->
-<!--        android:title="@string/covid_19" />-->
+    <item
+        android:id="@+id/navigation_covid"
+        android:icon="@drawable/ic_virus"
+        android:title="@string/covid_19" />
 
     <item
         android:id="@+id/navigation_settings"

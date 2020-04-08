@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_countries" />
 
     <fragment
+        android:id="@+id/navigation_covid"
+        android:name="com.vickikbt.covid_19statapp.CovidFragment"
+        android:label="Covid-19"
+        tools:layout="@layout/fragment_covid" />
+
+    <fragment
         android:id="@+id/navigation_settings"
         android:name="com.vickikbt.covid_19statapp.ui.settings.SettingsFragment"
         android:label="@string/settings"
