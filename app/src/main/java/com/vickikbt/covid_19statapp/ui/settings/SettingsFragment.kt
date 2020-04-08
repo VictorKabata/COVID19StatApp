@@ -19,7 +19,6 @@ import com.vickikbt.covid_19statapp.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var viewModel: SettingsViewModel
     lateinit var binding: FragmentSettingsBinding
 
     override fun onCreateView(
@@ -27,7 +26,6 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
 
         val appSettingPref: SharedPreferences =

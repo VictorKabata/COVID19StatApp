@@ -7,10 +7,10 @@ class Facts {
         "Always remember to wash your hands.",
         "Keep a distance of 1 meter between you and someone who's showing symptoms.",
 //        "The government is making us quarantine so they can change the batteries in the pigeons.",
-        "March did not spread COVID-19 a lot but if we are not careful April-May.",
         "Practice social distancing...United we fall, divided we stand.",
         "Stay home, Stay safe.",
-        "When in offline mode, you can only view statistics from when you last had an internet connection."
+        "When in offline mode, you can only view statistics from when you last had an internet connection.",
+        "Before sharing any information related to COVID-19, first ensure that they are true to avoid spreading hysteria. "
 
 
 //        "Remember saying 2020 is your year?"
