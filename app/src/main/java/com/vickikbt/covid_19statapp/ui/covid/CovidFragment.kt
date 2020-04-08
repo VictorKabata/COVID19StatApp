@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp
+package com.vickikbt.covid_19statapp.ui.covid
 
 import android.content.Intent
 import android.net.Uri
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.FragmentCovidBinding
 
 
@@ -19,7 +20,8 @@ class CovidFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_covid, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_covid, container, false)
 
         binding.buttonLearnMore.setOnClickListener {
             openYouTubeVid()

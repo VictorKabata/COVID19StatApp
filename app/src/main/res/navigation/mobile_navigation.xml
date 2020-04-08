@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_covid"
-        android:name="com.vickikbt.covid_19statapp.CovidFragment"
+        android:name="com.vickikbt.covid_19statapp.ui.covid.CovidFragment"
         android:label="Covid-19"
         tools:layout="@layout/fragment_covid" />
 

@@ -1,11 +1,15 @@
 package com.vickikbt.covid_19statapp.ui.settings
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -51,7 +55,9 @@ class SettingsFragment : Fragment() {
         }
 
         binding.relativeLayoutFeedback.setOnClickListener {
-
+            val recipient:String="victorbro14@gmail.com"
+            val subject:String="Covid-19 Stat App Feedback"
+            sendFeedback(recipient,subject)
         }
 
         binding.relativeLayoutDeveloper.setOnClickListener {
@@ -69,10 +75,30 @@ class SettingsFragment : Fragment() {
         )
 
         builder.setView(view)
-        /* view.findViewById<TextView>(R.id.textviewDialogTitle).text = (resources.getString(R.string.exit_dialog_title))
-         view.findViewById<TextView>(R.id.textviewDialogMessage).text = (resources.getString(R.string.exit_dialog_message))
-         view.findViewById<Button>(R.id.buttonNo).text = (resources.getString(R.string.no))
-         view.findViewById<Button>(R.id.buttonYes).text = (resources.getString(R.string.yes))*/
+         view.findViewById<TextView>(R.id.profile_emailAddress).setOnClickListener {
+             val recipient:String="victorbro14@gmail.com"
+             val subject:String="Covid-19 Stat App Feedback"
+             sendFeedback(recipient,subject)
+         }
+
+         view.findViewById<TextView>(R.id.profile_website).setOnClickListener{
+             val intent = Intent(Intent.ACTION_VIEW)
+             intent.data = Uri.parse("https://victorkabata.github.io/")
+
+             val chooser = Intent.createChooser(intent, "Open website using: ")
+             //if (intent.resolveActivity(pac))
+             startActivity(chooser)
+         }
+
+        view.findViewById<TextView>(R.id.profile_twitter).setOnClickListener{
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://victorkabata.github.io/") //TODO: Add my twitter handle here.
+
+            val chooser = Intent.createChooser(intent, "Open Twitter using: ")
+            //if (intent.resolveActivity(pac))
+            startActivity(chooser)
+        }
+
 
         val alertDialog = builder.create()
         if (alertDialog.window != null) {
@@ -80,5 +106,20 @@ class SettingsFragment : Fragment() {
         }
 
         alertDialog.show()
+    }
+
+    private fun sendFeedback(recipient:String,subject:String) {
+        val intent= Intent(Intent.ACTION_SEND)
+        intent.data= Uri.parse("mailto:")
+        intent.type="text/plain"
+        intent.putExtra(Intent.EXTRA_EMAIL,recipient)
+        intent.putExtra(Intent.EXTRA_SUBJECT,subject)
+
+        try{
+            val chooser = Intent.createChooser(intent, "Choose email client: ")
+            startActivity(chooser)
+        }catch (e:Exception){
+            Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
+        }
     }
 }
