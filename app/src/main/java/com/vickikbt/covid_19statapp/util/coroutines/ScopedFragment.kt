@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.util
+package com.vickikbt.covid_19statapp.util.coroutines
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

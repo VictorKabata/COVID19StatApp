@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.util
+package com.vickikbt.covid_19statapp
 
 import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen

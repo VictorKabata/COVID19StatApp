@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.FragmentGlobalBinding
-import com.vickikbt.covid_19statapp.util.ScopedFragment
+import com.vickikbt.covid_19statapp.util.coroutines.ScopedFragment
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein

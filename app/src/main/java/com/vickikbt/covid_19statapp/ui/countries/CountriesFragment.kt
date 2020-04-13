@@ -11,14 +11,14 @@ import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.data.adapter.RecyclerViewAdapter
 import com.vickikbt.covid_19statapp.databinding.FragmentCountriesBinding
 import com.vickikbt.covid_19statapp.data.db.entity.CountriesCoronaDataEntry
-import com.vickikbt.covid_19statapp.util.ScopedFragment
+import com.vickikbt.covid_19statapp.util.coroutines.ScopedFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
 
-class CountriesFragment : ScopedFragment(), KodeinAware {
+internal class CountriesFragment : ScopedFragment(), KodeinAware {
 
     override val kodein by closestKodein()
     private val viewModelFactory: CountriesFragmentViewModelFactory by instance()
@@ -27,7 +27,7 @@ class CountriesFragment : ScopedFragment(), KodeinAware {
     lateinit var myAdapter: RecyclerViewAdapter
 
     private lateinit var viewModel: CountriesFragmentViewModel
-    lateinit var binding: FragmentCountriesBinding
+    private lateinit var binding: FragmentCountriesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
