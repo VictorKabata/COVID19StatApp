@@ -14,7 +14,7 @@
 * Entirely written in [Kotlin](https://kotlinlang.org/) (including [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)) with [ktlint](https://github.com/pinterest/ktlint) for code style
 * Makes use of [Android Jetpack](https://developer.android.com/jetpack/), including:
   * All appropriate [Architecture Components](https://developer.android.com/jetpack/arch/), including **Lifecycles**, **LiveData**, **ViewModel**, **Room**, **Paging** and **Navigation** 
-  * [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout) 2.0,\
+  * [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout) 2.0
   * [Android KTX](https://developer.android.com/kotlin/ktx) for more fluent use of Android APIs
 * [Retrofit](https://square.github.io/retrofit/)/[OkHttp](https://square.github.io/okhttp/) for networking
 * [Kodein](https://kodein.org/Kodein-DI/?6.5/android) for dependency injection
