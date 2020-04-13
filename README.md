@@ -4,11 +4,11 @@
 ## Screenshots
 | SplashScreen | Global | Countries | Covid | Settings |
 | ------ | ----- | ------ | ------ | ------ |
-
+|![SplashScreen](/art/splash-dark.png) | ![Global](/art/global-dark.png) | ![Countries](/art/countries-dark.png) | ![Covid](/art/covid-dark.png) | ![Settings](/art/settings-dark.png) |
 
 | SplashScreen | Global | Countries | Covid | Settings |
 | ------ | ----- | ------ | ------ | ------ |
-
+|![SplashScreen](/art/splash-light.png) | ![Global](/art/global-light.png) | ![Countries](/art/countries-light.png) | ![Covid](/art/covid-light.png) | ![Settings](/art/settings-dark.png) |
 ## Tools
 
 
