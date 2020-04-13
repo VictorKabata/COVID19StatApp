@@ -25,7 +25,6 @@ internal class SplashScreenActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
         viewModel = ViewModelProvider(this).get(SplashScreenViewModel::class.java)
 
-        //TODO: ADD Linting to this
         val appSettingPref: SharedPreferences = getSharedPreferences("ApSettingsPref", 0)
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
         if (isNightModeOn) {
