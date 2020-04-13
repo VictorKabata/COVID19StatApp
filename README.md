@@ -2,7 +2,12 @@
  COVID-19 Stats App using MVVM architecture to show statistics about the current global pandemic.
 
 ## Screenshots
+| SplashScreen | Global | Countries | Covid | Settings |
+| ------ | ----- | ------ | ------ | ------ |
 
+
+| SplashScreen | Global | Countries | Covid | Settings |
+| ------ | ----- | ------ | ------ | ------ |
 
 ## Tools
 
