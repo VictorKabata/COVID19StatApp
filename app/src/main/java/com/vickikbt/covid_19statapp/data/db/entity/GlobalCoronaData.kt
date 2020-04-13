@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.db.entity
+package com.vickikbt.covid_19statapp.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

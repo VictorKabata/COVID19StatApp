@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.adapter
+package com.vickikbt.covid_19statapp.data.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +8,12 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.ramotion.foldingcell.FoldingCell
 import com.vickikbt.covid_19statapp.R
-import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
-import java.util.*
+import com.vickikbt.covid_19statapp.data.db.entity.CountriesCoronaDataEntry
 
 
-class RecyclerViewAdapter(private var countriesList: MutableList<CountriesCoronaDataEntry>) :
-    RecyclerView.Adapter<RecyclerViewAdapter.CountriesViewHolder>() {
+internal class RecyclerViewAdapter(
+    private var countriesList: MutableList<CountriesCoronaDataEntry>
+) : RecyclerView.Adapter<RecyclerViewAdapter.CountriesViewHolder>() {
 
     var countriesFilteredList: MutableList<CountriesCoronaDataEntry>? = null
 
@@ -25,7 +25,9 @@ class RecyclerViewAdapter(private var countriesList: MutableList<CountriesCorona
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
 
-        return CountriesViewHolder(view)
+        return CountriesViewHolder(
+            view
+        )
     }
 
     override fun getItemCount() = countriesFilteredList!!.size

@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.vickikbt.covid_19statapp.R
-import com.vickikbt.covid_19statapp.adapter.RecyclerViewAdapter
+import com.vickikbt.covid_19statapp.data.adapter.RecyclerViewAdapter
 import com.vickikbt.covid_19statapp.databinding.FragmentCountriesBinding
-import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
+import com.vickikbt.covid_19statapp.data.db.entity.CountriesCoronaDataEntry
 import com.vickikbt.covid_19statapp.util.ScopedFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -56,7 +55,10 @@ class CountriesFragment : ScopedFragment(), KodeinAware {
                      }
                  }
 
-                 myAdapter= RecyclerViewAdapter(tempList)
+                 myAdapter=
+                     RecyclerViewAdapter(
+                         tempList
+                     )
                  binding.recyclerViewCountries.adapter=myAdapter
              }
 
@@ -74,7 +76,10 @@ class CountriesFragment : ScopedFragment(), KodeinAware {
     }
 
     private fun initRecyclerView() = launch(Dispatchers.Main) {
-        myAdapter = RecyclerViewAdapter(dataList)
+        myAdapter =
+            RecyclerViewAdapter(
+                dataList
+            )
         val currentCountriesStat = viewModel.countriesStatistics.await()
 
         currentCountriesStat.observe(viewLifecycleOwner, Observer {

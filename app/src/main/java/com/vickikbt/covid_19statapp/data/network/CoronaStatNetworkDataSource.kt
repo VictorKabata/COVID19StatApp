@@ -1,8 +1,8 @@
-package com.vickikbt.covid_19statapp.network
+package com.vickikbt.covid_19statapp.data.network
 
 import androidx.lifecycle.LiveData
-import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
+import com.vickikbt.covid_19statapp.data.model.CountriesCoronaDataResponse
+import com.vickikbt.covid_19statapp.data.db.entity.GlobalCoronaData
 
 interface CoronaStatNetworkDataSource {
     val downloadedGlobalStats: LiveData<GlobalCoronaData>

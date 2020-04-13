@@ -1,13 +1,14 @@
-package com.vickikbt.covid_19statapp.network
+package com.vickikbt.covid_19statapp.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.widget.Toast
+import com.vickikbt.covid_19statapp.data.network.ConnectivityInterceptor
 import com.vickikbt.covid_19statapp.util.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class ConnectivityInterceptorImpl(context: Context) : ConnectivityInterceptor {
+class ConnectivityInterceptorImpl(context: Context) :
+    ConnectivityInterceptor {
     private val appContext = context.applicationContext
 
     override fun intercept(chain: Interceptor.Chain): Response {

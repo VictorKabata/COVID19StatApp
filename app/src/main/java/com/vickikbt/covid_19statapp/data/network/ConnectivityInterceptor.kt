@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.network
+package com.vickikbt.covid_19statapp.data.network
 
 import okhttp3.Interceptor
 

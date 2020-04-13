@@ -1,12 +1,12 @@
-package com.vickikbt.covid_19statapp.db.dao
+package com.vickikbt.covid_19statapp.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.db.entity.CountriesCoronaDataEntry
+import com.vickikbt.covid_19statapp.data.model.CountriesCoronaDataResponse
+import com.vickikbt.covid_19statapp.data.db.entity.CountriesCoronaDataEntry
 
 @Dao
 interface CountriesCoronaStatDAO {
