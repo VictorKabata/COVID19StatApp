@@ -3,6 +3,8 @@ package com.vickikbt.covid_19statapp.data.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +39,7 @@ internal class RecyclerViewAdapter(
     }
 
 
-    class CountriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    internal class CountriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var textViewCountryFolded: TextView? = null
         var textViewCountryCasesFolded: TextView? = null
@@ -107,4 +109,5 @@ internal class RecyclerViewAdapter(
 
         }
     }
+
 }

@@ -1,19 +1,17 @@
 package com.vickikbt.covid_19statapp.ui.settings
 
+import android.content.SharedPreferences
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModel
 import com.vickikbt.covid_19statapp.util.view.sendFeedback
 import com.vickikbt.covid_19statapp.util.view.showAboutDeveloperDialog
-import com.vickikbt.covid_19statapp.util.view.toast
 
 internal class SettingsViewModel : ViewModel() {
 
     fun darkMode(view: View) {
-        //TODO: Remove this and add them to the viewModel
-
-        view.context.toast("Implementation is underway")
-        /*val appSettingPref: SharedPreferences =
-            this.activity!!.getSharedPreferences("ApSettingsPref", 0)
+        val appSettingPref: SharedPreferences =
+            view.context!!.getSharedPreferences("ApSettingsPref", 0)
 
         val sharedPrefSave: SharedPreferences.Editor = appSettingPref.edit()
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
@@ -24,17 +22,15 @@ internal class SettingsViewModel : ViewModel() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-        binding.relativeLayoutTheme.setOnClickListener {
-            if (isNightModeOn) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPrefSave.putBoolean("NightMode", false)
-                sharedPrefSave.apply()
-            } else {
-                sharedPrefSave.putBoolean("NightMode", true)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPrefSave.apply()
-            }
-        }*/
+        if (isNightModeOn) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            sharedPrefSave.putBoolean("NightMode", false)
+            sharedPrefSave.apply()
+        } else {
+            sharedPrefSave.putBoolean("NightMode", true)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            sharedPrefSave.apply()
+        }
     }
 
     fun sendFeedback(view: View) {

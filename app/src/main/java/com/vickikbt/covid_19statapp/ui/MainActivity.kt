@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 internal class MainActivity : AppCompatActivity() {
 
@@ -24,7 +24,6 @@ internal class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //TODO: Remove redundancy
         val appSettingPref: SharedPreferences = getSharedPreferences("ApSettingsPref", 0)
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
         if (isNightModeOn) {
@@ -39,12 +38,13 @@ internal class MainActivity : AppCompatActivity() {
 
     }
 
+
+
     private fun setupBottomNav() {
         val navController = findNavController(R.id.nav_host_fragment)
         nav_view.setupWithNavController(navController)
     }
 
-    //TODO: Lint this to work with ViewModel
     private fun checkConnectivity() {
         val connectivityManager =
             this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
