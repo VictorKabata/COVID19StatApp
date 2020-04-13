@@ -8,7 +8,7 @@
 
 | SplashScreen | Global | Countries | Covid | Settings |
 | ------ | ----- | ------ | ------ | ------ |
-|![SplashScreen](/art/splash-light.png) | ![Global](/art/global-light.png) | ![Countries](/art/countries-light.png) | ![Covid](/art/covid-light.png) | ![Settings](/art/settings-dark.png) |
+|![SplashScreen](/art/splash-light.png) | ![Global](/art/gobal-light.png) | ![Countries](/art/countries-light.png) | ![Covid](/art/covid-light.png) | ![Settings](/art/settings-light.png) |
 ## Tools
 
 
