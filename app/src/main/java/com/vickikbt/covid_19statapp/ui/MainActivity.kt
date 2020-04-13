@@ -11,34 +11,38 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+internal class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val appSettingPref: SharedPreferences = getSharedPreferences("ApSettingsPref", 0)
-
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
-
         if (isNightModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        navView.setupWithNavController(navController)
+        setupBottomNav()
 
         checkConnectivity()
 
+    }
+
+
+
+    private fun setupBottomNav() {
+        val navController = findNavController(R.id.nav_host_fragment)
+        nav_view.setupWithNavController(navController)
     }
 
     private fun checkConnectivity() {
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             binding.relativeLayoutConnectivity.visibility = View.GONE
         } else {
             binding.relativeLayoutConnectivity.visibility = View.VISIBLE
-            
+
             Handler().postDelayed(Runnable {
                 binding.relativeLayoutConnectivity.visibility = View.GONE
             }, 3500)

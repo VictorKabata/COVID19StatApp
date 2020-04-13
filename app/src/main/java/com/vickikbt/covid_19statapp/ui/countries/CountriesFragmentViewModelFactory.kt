@@ -2,7 +2,7 @@ package com.vickikbt.covid_19statapp.ui.countries
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.vickikbt.covid_19statapp.db.repository.CoronaRepository
+import com.vickikbt.covid_19statapp.data.repository.CoronaRepository
 
 @Suppress("UNCHECKED_CAST")
 class CountriesFragmentViewModelFactory(private val coronaRepository: CoronaRepository) :

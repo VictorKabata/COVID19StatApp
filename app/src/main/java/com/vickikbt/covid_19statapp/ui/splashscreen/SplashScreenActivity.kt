@@ -15,10 +15,10 @@ import com.vickikbt.covid_19statapp.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import spencerstudios.com.bungeelib.Bungee
 
-class SplashScreenActivity : AppCompatActivity() {
+internal class SplashScreenActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivitySplashScreenBinding
-    lateinit var viewModel: SplashScreenViewModel
+    private lateinit var binding: ActivitySplashScreenBinding
+    private lateinit var viewModel: SplashScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +27,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
         val appSettingPref: SharedPreferences = getSharedPreferences("ApSettingsPref", 0)
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
-
         if (isNightModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+
 
         viewModel.facts.observe(this, Observer {
             textView_fact.text = it
