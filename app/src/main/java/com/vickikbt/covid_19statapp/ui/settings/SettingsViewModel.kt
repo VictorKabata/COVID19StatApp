@@ -2,9 +2,9 @@ package com.vickikbt.covid_19statapp.ui.settings
 
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.vickikbt.covid_19statapp.util.sendFeedback
-import com.vickikbt.covid_19statapp.util.showAboutDeveloperDialog
-import com.vickikbt.covid_19statapp.util.toast
+import com.vickikbt.covid_19statapp.util.view.sendFeedback
+import com.vickikbt.covid_19statapp.util.view.showAboutDeveloperDialog
+import com.vickikbt.covid_19statapp.util.view.toast
 
 internal class SettingsViewModel : ViewModel() {
 

@@ -14,33 +14,37 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vickikbt.covid_19statapp.R
 import com.vickikbt.covid_19statapp.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+internal class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
+        //TODO: Remove redundancy
         val appSettingPref: SharedPreferences = getSharedPreferences("ApSettingsPref", 0)
-
         val isNightModeOn: Boolean = appSettingPref.getBoolean("NightMode", false)
-
         if (isNightModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        navView.setupWithNavController(navController)
+        setupBottomNav()
 
         checkConnectivity()
 
     }
 
+    private fun setupBottomNav() {
+        val navController = findNavController(R.id.nav_host_fragment)
+        nav_view.setupWithNavController(navController)
+    }
+
+    //TODO: Lint this to work with ViewModel
     private fun checkConnectivity() {
         val connectivityManager =
             this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             binding.relativeLayoutConnectivity.visibility = View.GONE
         } else {
             binding.relativeLayoutConnectivity.visibility = View.VISIBLE
-            
+
             Handler().postDelayed(Runnable {
                 binding.relativeLayoutConnectivity.visibility = View.GONE
             }, 3500)

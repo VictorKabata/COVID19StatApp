@@ -2,8 +2,7 @@ package com.vickikbt.covid_19statapp.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.vickikbt.covid_19statapp.data.network.ConnectivityInterceptor
-import com.vickikbt.covid_19statapp.util.NoConnectivityException
+import com.vickikbt.covid_19statapp.util.coroutines.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 

@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.util
+package com.vickikbt.covid_19statapp.util.view
 
 import java.util.*
 

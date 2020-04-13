@@ -5,9 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.vickikbt.covid_19statapp.data.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.data.db.entity.GlobalCoronaData
-import com.vickikbt.covid_19statapp.data.network.CoronaAPIService
-import com.vickikbt.covid_19statapp.data.network.CoronaStatNetworkDataSource
-import com.vickikbt.covid_19statapp.util.NoConnectivityException
+import com.vickikbt.covid_19statapp.util.coroutines.NoConnectivityException
 
 class CoronaStatNetworkDataSourceImpl(private val coronaAPIService: CoronaAPIService) :
     CoronaStatNetworkDataSource {

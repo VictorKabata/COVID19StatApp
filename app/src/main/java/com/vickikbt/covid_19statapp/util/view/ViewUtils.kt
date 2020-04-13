@@ -1,4 +1,4 @@
-package com.vickikbt.covid_19statapp.util
+package com.vickikbt.covid_19statapp.util.view
 
 import android.content.Context
 import android.content.Intent
@@ -15,6 +15,8 @@ fun Context.toast(msg: String) {
         show()
     }
 }
+
+
 
 fun Context.openYoutube() {
     val intent = Intent(Intent.ACTION_VIEW)
