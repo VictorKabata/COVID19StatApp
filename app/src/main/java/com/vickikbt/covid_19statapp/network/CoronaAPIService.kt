@@ -1,8 +1,8 @@
 package com.vickikbt.covid_19statapp.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
+import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,10 +14,10 @@ private const val BASE_URL = "https://corona.lmao.ninja/"
 
 interface CoronaAPIService {
 
-    @GET("all")
+    @GET("v2/all")
     fun getGlobalStatistics(): Deferred<GlobalCoronaData>
 
-    @GET("countries")
+    @GET("v2/countries")
     fun getCountriesStatistics(): Deferred<CountriesCoronaDataResponse>
 
     companion object {
