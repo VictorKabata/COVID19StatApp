@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.vickikbt.covid_19statapp.ui.settings.SettingsViewModel" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,7 +90,9 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="8dp"
+                        android:onClick="@{viewmodel::darkMode}"
                         android:padding="8dp">
+
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -112,6 +121,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="8dp"
+                        android:onClick="@{viewmodel::sendFeedback}"
                         android:padding="8dp">
 
                         <TextView
@@ -141,6 +151,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="8dp"
+                        android:onClick="@{viewmodel::aboutDev}"
                         android:padding="8dp">
 
                         <TextView

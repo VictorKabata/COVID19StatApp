@@ -2,7 +2,7 @@ package com.vickikbt.covid_19statapp.ui.splashscreen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.vickikbt.covid_19statapp.util.Facts
+import com.vickikbt.covid_19statapp.util.view.Facts
 
 class SplashScreenViewModel : ViewModel() {
     private val _facts = MutableLiveData<String>()
