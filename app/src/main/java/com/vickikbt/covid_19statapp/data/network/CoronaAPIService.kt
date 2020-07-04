@@ -1,10 +1,10 @@
 package com.vickikbt.covid_19statapp.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.vickikbt.covid_19statapp.data.db.entity.GlobalCoronaData
+import com.vickikbt.covid_19statapp.data.model.CountriesCoronaDataResponse
 import com.vickikbt.covid_19statapp.db.entity.GlobalCoronaData
 import com.vickikbt.covid_19statapp.model.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.data.model.CountriesCoronaDataResponse
-import com.vickikbt.covid_19statapp.data.db.entity.GlobalCoronaData
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -26,30 +26,30 @@ interface CoronaAPIService {
         operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): CoronaAPIService {
             val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
-                    .url()
-                    .newBuilder()
-                    .build()
+                        .url()
+                        .newBuilder()
+                        .build()
 
                 val request = chain.request()
-                    .newBuilder()
-                    .url(url)
-                    .build()
+                        .newBuilder()
+                        .url(url)
+                        .build()
 
                 return@Interceptor chain.proceed(request)
             }
 
             val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(requestInterceptor)
-                .addInterceptor(connectivityInterceptor)
-                .build()
+                    .addInterceptor(requestInterceptor)
+                    .addInterceptor(connectivityInterceptor)
+                    .build()
 
             return Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl(BASE_URL)
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(CoronaAPIService::class.java)
+                    .client(okHttpClient)
+                    .baseUrl(BASE_URL)
+                    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create(CoronaAPIService::class.java)
         }
     }
 }
