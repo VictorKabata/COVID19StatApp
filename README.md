@@ -1,5 +1,5 @@
 # COVID-19 Stat App
- An android app consuming [ a Covid-19 Stats API](http.lmao.ninja/api) to display realtime statistics of Covid-19 in all affected countries and global statistics.
+ An android app consuming [ a Covid-19 Stats API](https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest) to display realtime statistics of Covid-19 in all affected countries and global statistics.
  
  It has been built using MVVM architecture and repository pattern as well as various jetpack components.
 
