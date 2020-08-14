@@ -3,9 +3,9 @@
  
  It has been built using MVVM architecture and repository pattern as well as various jetpack components.
 
- > Min Api Level: 19 - Android version 4.4 (Kitkat) [Supports over 98.1% of devices](https://developer.android.com/about/dashboards)
-
  > You can download the final apk [here](https://drive.google.com/file/d/1-3Yr31F5tYShllwkeKLrzsoZ9pdLs4DX/view?usp=sharing).
+
+ > Min Api Level: 19 - Android version 4.4 (Kitkat) [Supports over 98.1% of devices](https://developer.android.com/about/dashboards)
 
 ## App Demo
 
@@ -17,10 +17,32 @@ The splash screen show various tip regarding the app and the current global pand
 
 
 ### Global Statistics Fragment.
-This fragment show the global statistics of the Covid-19 pandemic..
+This fragment show the global statistics of the Covid-19 pandemic.
 
 <img  src="images/global_dark.png" width="280"/> 
-<img src="images/global_light.png" width="280"/>   
+<img src="images/global_light.png" width="280"/>  
+
+### Countries Statistics Fragment.
+This fragment show the statistics of the Covid-19 pandemic in all affected countries. You can also search for a specific country.
+
+<img  src="images/countries.png" width="280"/> 
+<img src="images/countries_full.png" width="280"/>  
+<img src="images/countries_search.png" width="280"/>  
+
+### Covid-19 Info Fragment.
+This fragment show some information about the Covid-19 virus and how it is spread. It also show some information on how to prevent infection and some common symptoms of infection.
+
+<img  src="images/covid1.png" width="280"/> 
+<img src="images/covid2.png" width="280"/>  
+<img src="images/covid3.png" width="280"/>  
+
+### Settings Fragment.
+This fragment allows the user to change the app theme between light and dark theme. The user can also send a user to the developer regarding feature request or feedback. The user can also see social media link to the developer and more information about the developer.
+
+<img  src="images/settings.png" width="280"/> 
+
+
+
 
 ## Tools and Libraries
 
