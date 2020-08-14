@@ -1,4 +1,4 @@
-# COVID-19 Stat App :sob: :mask: :chart_with_downwards_trend: :iphone:
+# COVID-19 Stat App
  An android app consuming [ a Covid-19 Stats API](http.lmao.ninja/api) to display realtime statistics of Covid-19 in all affected countries and global statistics.
  
  It has been built using MVVM architecture and repository pattern as well as various jetpack components.
@@ -9,18 +9,47 @@
 
 ## App Demo
 
+### Splash Screen.
+The splash screen show various tip regarding the app and the current global pandemic.
+
+<img  src="images/splash_dark1.png" width="280"/> 
+<img src="images/splash_light.png" width="280"/>   
+
+
+### Global Statistics Fragment.
+This fragment show the global statistics of the Covid-19 pandemic..
+
+<img  src="images/global_dark.png" width="280"/> 
+<img src="images/global_light.png" width="280"/>   
 
 ## Tools and Libraries
 
-* Entirely written in [Kotlin](https://kotlinlang.org/) (including [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)) with [ktlint](https://github.com/pinterest/ktlint) for code style
-* Makes use of [Android Jetpack](https://developer.android.com/jetpack/), including:
-  * All appropriate [Architecture Components](https://developer.android.com/jetpack/arch/), including: **Lifecycles**, **LiveData**, **ViewModel**, **Room**, **Paging** and **Navigation** 
-  * [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout) 2.0
-  * [Android KTX](https://developer.android.com/kotlin/ktx) for more fluent use of Android APIs
+- The app is entirely written in [Kotlin](https://kotlinlang.org/) (including [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)) with [ktlint](https://github.com/pinterest/ktlint) for code style
+* Makes use of [Android Jetpack Components](https://developer.android.com/jetpack/) like: 
+  - Livedata- Handle data in a lifecycle-aware fashion.
+  - Room- For offline persistance of data fetched from the network source.
+  - Viewmodel- Manage your UI's data in a lifecycle-aware fashion.
+  - Databinding- Minimize the glue code necessary to bind your application logic and layouts.
+  - Navigation- Reduces the boilerplate code that was used to handle navigation and passing of data from one activity/fragment to another.
+     
+* [Android KTX](https://developer.android.com/kotlin/ktx) for more fluent use of Android APIs
+
 * [Retrofit](https://square.github.io/retrofit/)/[OkHttp](https://square.github.io/okhttp/) for networking
+
 * [Kodein](https://kodein.org/Kodein-DI/?6.5/android) for dependency injection
+
+* [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout) 2.0
+
 * Designed and built using Material Design [tools](https://material.io/tools/) and [components](https://material.io/develop/android/)
 
+## Prerequisites
+You will need the following to run this project:
+1. A laptop or desktop machine with internet access
+2. Android Studio Stable Channel (Latest Stable Release)
+
+## Setting Up
+* Clone the Repository from Github
+* Open the project folder using Android Studio IDE
 
 
 ## Inspiration
